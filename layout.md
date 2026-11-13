@@ -1,7 +1,7 @@
 # Layout Elements
 
 Structure is built from three explicit containers: the flow boxes
-`vbox` and `hbox`, and the region-based `border`. There is no implicit
+`vbox` and `hbox`. There is no implicit
 layout anywhere — a group of children always sits inside one of these.
 The [style.md](style.md) dimension utilities (`w-full`, `h-N`,
 padding, margin) apply on top of any of these.
@@ -147,43 +147,12 @@ Rules:
   retired — writing into them afterwards is an explicit error, never
   a silent write into a detached widget.
 
-## `border` — five-region layout
+## Removed: the `border` element
 
-`border` divides the area into named regions: `top`, `bottom`, `left`,
-`right`, and `center`. Each region takes **at most one child** (wrap a
-group in a box), appears at most once, and the regions that are absent
-simply do not exist — `center` alone is a valid, common case.
-
-```xml
-<goexml version="0.1.0">
-  <window title="Shell" size="640x480">
-    <border id="shell">
-      <top>
-        <label id="header" text="Header bar" />
-      </top>
-      <left>
-        <vbox id="nav" spacing="4">
-          <button id="navHome" text="Home" onClick="OnHome" />
-          <button id="navSettings" text="Settings" onClick="OnSettings" />
-        </vbox>
-      </left>
-      <center>
-        <label id="content" text="Main area" />
-      </center>
-      <bottom>
-        <label id="status" text="Ready" />
-      </bottom>
-    </border>
-  </window>
-</goexml>
-```
-
-Rules:
-
-- The region elements take no attributes at all — they are pure
-  placeholders.
-- Only `top`, `bottom`, `left`, `right`, `center` are legal children;
-  anything else is rejected as "is not a border region".
-- `border` requires at least one region.
-- `container` is legal inside a region; see
-  [containers-and-slots.md](containers-and-slots.md).
+> **Removed, 13 November 2026 (eighth amendment, still version
+> 0.1.0):** the `<border>` element and its region children are gone
+> from the schema — the five-region design was never specified, and
+> layout stays explicit. Compose with `vbox`/`hbox`. The visual
+> border utilities (`b-*`/`bt-`/...) are untouched — they belong to
+> [visual-style.md](visual-style.md). A hand-built tree carrying
+> `<border>` is rejected at decode.

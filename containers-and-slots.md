@@ -61,8 +61,7 @@ there and stretched to fill the slot's area.
 - The injection replaces the slot's content only; everything around it
   keeps the declared layout.
 - Because a container can hold any single child, the slot can sit
-  anywhere in a structure: a grid cell, a border center, a row of an
-  hbox.
+  anywhere in a structure: a grid cell, a row of an hbox.
 
 For page-shaped content that is swapped in and out at runtime, see
 [fragments.md](fragments.md): a fragment is built against the

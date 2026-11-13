@@ -35,8 +35,7 @@ The only supported version is `0.1.0`:
 The window holds **exactly one child**. This is the explicit-layout
 rule: two siblings would stack in an implicit, unconfigured box, so
 the author wraps them in a `<vbox>` and configures the box instead.
-The same rule applies inside [border regions](layout.md) and
-[fragments](fragments.md).
+The same rule applies inside [fragments](fragments.md).
 
 ```xml
 <goexml version="0.1.0">

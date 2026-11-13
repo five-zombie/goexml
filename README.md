@@ -22,7 +22,7 @@ Each file owns exactly one topic:
 | Document | Responsibility |
 |---|---|
 | [document.md](document.md) | The document envelope: `<goexml>`, `<window>`, global rules, error format |
-| [layout.md](layout.md) | Structure elements: `vbox`, `hbox`, `border` and their layout attributes |
+| [layout.md](layout.md) | Structure elements: `vbox`, `hbox` and their layout attributes |
 | [widgets.md](widgets.md) | Leaf widgets: `label`, `text`, `button`, `entry`, `select`, `table`, `rect` |
 | [style.md](style.md) | The `style` attribute: dimension and spacing utilities |
 | [visual-style.md](visual-style.md) | The `style` attribute: background, border, rounded corners |
@@ -35,7 +35,7 @@ Each file owns exactly one topic:
 
 A document is one `<goexml version="0.1.0">` envelope holding exactly
 one `<window>`. The window holds exactly one child — layout comes from
-explicit boxes (`vbox`, `hbox`, `border`), never from implicit
+explicit boxes (`vbox`, `hbox`), never from implicit
 stacking. Widgets carry unique `id`s; handlers are referenced by name
 in XML attributes and implemented by the host application; values that
 change at runtime are set by the runtime, never computed in XML. The

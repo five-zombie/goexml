@@ -26,8 +26,6 @@ whose text carries a `{{placeholder}}` template.
 | `vbox` | `spacing`, `align`, `justify`, `column`, `min`, `max` + **common** | ≥ 1 widget; see [layout.md](layout.md) for grid rules |
 | `vbox-expand` | `spacing`, `align`, `justify`, `column`, `min`, `max`, `scrollable` (bare, or `="true"`) + **common** | no children; items drafted at runtime from [fragments](fragments.md), each with a private id space |
 | `hbox` | `spacing`, `align`, `justify` + **common** | ≥ 1 widget |
-| `border` | — + **common** | ≥ 1 region (`top`/`bottom`/`left`/`right`/`center`), each at most once |
-| `top` / `bottom` / `left` / `right` / `center` | — (no attributes) | ≤ 1 widget |
 | `container` | — + **common** (`id` required) | exactly 1 widget whose subtree holds exactly 1 `slot`; no nested `container` |
 | `slot` | `style` (dimension utilities only) | none; only legal inside `container` |
 
