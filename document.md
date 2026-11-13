@@ -56,7 +56,7 @@ Every widget-level element accepts three common attributes, listed in
 
 | Attribute | Value | Notes |
 |---|---|---|
-| `id` | `[A-Za-z0-9_]+` | **Required** on all widgets and boxes. Unique across the whole file. Handlers and runtime value setters address elements by id. |
+| `id` | `[A-Za-z0-9_]+` | **Optional**, unique across the whole file when present. Give it to elements the runtime addresses; skip it on possibly-static elements. Still **required** on `container` (slots are filled by id), `vbox-expand` (the runtime handle comes from it), an `image` without `src` (a slot image must be addressable), and any element whose text carries a `{{placeholder}}` template (templates render through the runtime's setters, which address by id). |
 | `visible` | `true` / `false` | Defaults to `true`. `visible="false"` hides the element; a hidden box collapses in its parent's layout. |
 | `style` | Space-separated utilities | See [style.md](style.md) and [visual-style.md](visual-style.md). |
 

@@ -6,9 +6,10 @@ children. The behavioral details live in the topic documents — this
 page is the checklist.
 
 Common attributes (`id`, `visible`, `style`) are marked **common**.
-`id` is required on every element marked **common** except where noted
-— `id` is optional on `slot`, `option`, `row`, `cell`, and the border
-regions, and required everywhere else.
+`id` is **optional** everywhere, unique across the file when present.
+It stays required on the elements the runtime must reference by name:
+`container`, `vbox-expand`, an `image` without `src`, and any element
+whose text carries a `{{placeholder}}` template.
 
 ## Envelopes
 
