@@ -15,7 +15,6 @@ Lays children out top to bottom in document order.
 
 | Attribute | Value | Default |
 |---|---|---|
-| `padding` | Non-negative integer, px around the box's content | `0` |
 | `spacing` | Non-negative integer, px gap between children | `0` |
 | `align` | `start` / `center` / `end` — cross-axis (horizontal) alignment of each child | `start` |
 | `justify` | `start` / `center` / `end` / `space-between` / `space-around` / `space-evenly` — main-axis (vertical) distribution | `start` |
@@ -25,7 +24,7 @@ Lays children out top to bottom in document order.
 ```xml
 <goexml version="0.1.0">
   <window title="Vertical" size="320x240">
-    <vbox id="root" padding="8" spacing="4" align="start">
+    <vbox id="root" style="p-2" spacing="4" align="start">
       <label id="a" text="First" />
       <label id="b" text="Second" />
       <label id="c" text="Third" />
@@ -40,8 +39,10 @@ Rules:
   rejected.
 - `align` and `justify` validate strictly; anything outside the value
   lists above is an error.
-- `padding` and `spacing` validate as non-negative integers; there is
-  no unit suffix, values are px.
+- `spacing` validates as a non-negative integer; there is no unit
+  suffix, values are px. Inner padding is not an attribute: the style
+  `p-N` utilities add it on any element (an older `padding` attribute
+  on boxes was removed — use `style="p-2"` for 8 px).
 
 ## `hbox` — horizontal box
 
@@ -108,6 +109,11 @@ typically a feed, a log, or a result list.
 
 | Attribute | Value | Default |
 |---|---|---|
+| `spacing` | Non-negative integer, px gap between items | `0` |
+| `align` | `start` / `center` / `end` — cross-axis alignment of each item | `start` |
+| `justify` | `start` / `center` / `end` / `space-between` / `space-around` / `space-evenly` — main-axis distribution | `start` |
+| `column` | `grid` — flows items into a column-flow grid | off |
+| `min` / `max` | Integers ≥ 1 — grid column count bounds, only with `column="grid"` | — |
 | `scrollable` | present and empty | absent |
 
 Rules:
@@ -115,6 +121,11 @@ Rules:
 - Takes no children. Items come from
   [fragments](fragments.md) appended at runtime; a document that
   declares children is rejected.
+- The layout attributes mirror a static `vbox`: `spacing` sets the
+  gap between items, `align` and `justify` position them, and
+  `column="grid"` with `min`/`max` flows them into columns. A style
+  utility on an item root (`h-N`, `w-full`) sizes that item inside
+  the stack, exactly like a child of a `vbox`.
 - Each appended item is a fragment build of its own, with a **private
   id space**: the same fragment can stack many times — `id="title"`
   inside ten items means ten titles, reachable per item through the

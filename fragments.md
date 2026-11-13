@@ -7,7 +7,7 @@ application compose screens from parts.
 
 ```xml
 <goexml-item version="0.1.0">
-  <vbox id="pageBody" padding="8" spacing="4">
+  <vbox id="pageBody" style="p-2" spacing="4">
     <label id="title" text="Orders" />
     <rect id="sep" color="#2e2e2e" style="w-full h-0" />
     <label id="summary" text="12 open orders" />

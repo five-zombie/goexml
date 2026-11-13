@@ -41,7 +41,7 @@ The same rule applies inside [border regions](layout.md) and
 ```xml
 <goexml version="0.1.0">
   <window title="Preferences" size="480x360">
-    <vbox id="root" padding="8" spacing="8">
+    <vbox id="root" style="p-2" spacing="8">
       <label id="info" text="General settings" />
       <entry id="name" placeholder="Display name" />
     </vbox>

@@ -14,7 +14,7 @@ the injection point. Its subtree must contain **exactly one** `slot`.
 <goexml version="0.1.0">
   <window title="Page" size="480x360">
     <container id="page">
-      <vbox id="shell" padding="8" spacing="8">
+      <vbox id="shell" style="p-2" spacing="8">
         <label id="head" text="goexml page" />
         <slot style="h-full" />
         <label id="foot" text="footer stays in XML" />

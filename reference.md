@@ -23,9 +23,9 @@ whose text carries a `{{placeholder}}` template.
 | Element | Own attributes | Children |
 |---|---|---|
 | `window` | `title` (req), `size` (req, `WxH`) | exactly one widget |
-| `vbox` | `padding`, `spacing`, `align`, `justify`, `column`, `min`, `max` + **common** | ≥ 1 widget; see [layout.md](layout.md) for grid rules |
-| `vbox-expand` | `scrollable` (present and empty) + **common** | no children; items appended at runtime from [fragments](fragments.md), each with a private id space |
-| `hbox` | `padding`, `spacing`, `align`, `justify` + **common** | ≥ 1 widget |
+| `vbox` | `spacing`, `align`, `justify`, `column`, `min`, `max` + **common** | ≥ 1 widget; see [layout.md](layout.md) for grid rules |
+| `vbox-expand` | `spacing`, `align`, `justify`, `column`, `min`, `max`, `scrollable` (present and empty) + **common** | no children; items appended at runtime from [fragments](fragments.md), each with a private id space |
+| `hbox` | `spacing`, `align`, `justify` + **common** | ≥ 1 widget |
 | `border` | — + **common** | ≥ 1 region (`top`/`bottom`/`left`/`right`/`center`), each at most once |
 | `top` / `bottom` / `left` / `right` / `center` | — (no attributes) | ≤ 1 widget |
 | `container` | — + **common** (`id` required) | exactly 1 widget whose subtree holds exactly 1 `slot`; no nested `container` |
@@ -60,7 +60,7 @@ whose text carries a `{{placeholder}}` template.
 | `wrap` | `word` / `break` / `off` |
 | `column` | `grid` (vbox only) |
 | `min`, `max` | integers ≥ 1, only with `column="grid"` |
-| `padding`, `spacing` | non-negative integers (px) |
+| `spacing` | non-negative integer (px); inner padding moved to the style `p-N` utilities |
 | `size` | `WxH`, e.g. `800x600` |
 | `color` | `#rrggbb` |
 | `src` | optional resource key: `[A-Za-z0-9._/-]+`; absent = runtime-filled slot |

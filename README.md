@@ -46,7 +46,7 @@ error.
 ```xml
 <goexml version="0.1.0">
   <window title="Hello" size="400x300">
-    <vbox id="root" padding="8" spacing="4">
+    <vbox id="root" style="p-2" spacing="4">
       <label id="greeting" text="Hello, goexml" />
       <button id="ok" text="OK" onClick="OnOk" />
     </vbox>
