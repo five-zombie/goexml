@@ -202,14 +202,19 @@ a runtime decision, which keeps documents portable across platforms.
 
 | Attribute | Value | Default |
 |---|---|---|
-| `src` | Resource key: letters, digits, dot, dash, slash, underscore | required |
+| `src` | Resource key: letters, digits, dot, dash, slash, underscore; **optional** — omit for a runtime-filled slot | — |
 | `fit` | `contain` / `cover` / `fill` | `contain` |
 
 Rules:
 
-- `src` must name a resource the runtime registered; an unknown key,
-  or bytes that are not a decodable image, fail the build — an image
-  can never silently render as an empty box.
+- With `src`, it must name a resource the runtime registered; an
+  unknown key, or bytes that are not a decodable image, fail the
+  build — an image can never silently render as an empty box.
+- Without `src`, the image is a **runtime-filled slot**, like a
+  container slot: the XML reserves the place, the runtime supplies
+  the pixels later. A slot renders empty and invisible until filled;
+  the runtime fills it by id and can audit images still unfilled
+  before showing, so no slot is forgotten.
 - Without size style the image is as large as its pixels. The
   [dimension utilities](style.md) size it like any leaf — `h-*` is
   **allowed** on an image (unlike a [table](widgets.md): pictures

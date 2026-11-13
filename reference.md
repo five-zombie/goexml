@@ -61,7 +61,7 @@ regions, and required everywhere else.
 | `padding`, `spacing` | non-negative integers (px) |
 | `size` | `WxH`, e.g. `800x600` |
 | `color` | `#rrggbb` |
-| `src` | resource key: `[A-Za-z0-9._/-]+`, resolved from the runtime's resource set |
+| `src` | optional resource key: `[A-Za-z0-9._/-]+`; absent = runtime-filled slot |
 | `fit` | `contain` (default) / `cover` / `fill` |
 | `selected` | present and empty |
 | `style` | see [style.md](style.md) and [visual-style.md](visual-style.md) |
