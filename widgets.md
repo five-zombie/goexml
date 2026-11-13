@@ -190,9 +190,11 @@ A solid color block, a spacer with a visible body:
 ## `image`
 
 A picture from the runtime's **registered resource set**. XML names a
-resource; it never carries a file path, a URL, or a `{{token}}` —
-where the bytes live (embedded bundle, asset pack, network loader) is
-a runtime decision, which keeps documents portable across platforms.
+resource key; the key may look like a path (`assets/logo.png`) but it
+is still a key into the set — it never carries a URL or a `{{token}}`,
+and nothing is ever read from disk or network. Where the bytes live
+(embedded bundle, asset pack, network loader) is a runtime decision,
+which keeps documents portable across platforms.
 
 ```xml
 <goexml version="0.1.0">
