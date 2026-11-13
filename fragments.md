@@ -57,15 +57,19 @@ page B means building fragment B where fragment A stood:
   template. The last call wins, per id.
 - The document's own ids are never touched by a fragment rebuild.
 
-## Appending fragments into a `vbox-expand`
+## Drafting fragments into a `vbox-expand`
 
 Fragments are also the unit of growth for the
-[`vbox-expand`](layout.md) stack: the runtime builds a fragment per
-appended item. Unlike a page rebuild, each appended item keeps its
-**own private id space** — the same fragment can be appended many
-times without its ids colliding, and per-item slot content and image
-resources are supplied at each append. Emptying the stack retires
-that stack's items; the document's global id space is never touched.
+[`vbox-expand`](layout.md) stack: the runtime drafts a fragment per
+item. Drafting builds the item **off-screen** — nothing appears in the
+stack yet — and each draft keeps its **own private id space**, so the
+same fragment can be drafted many times without its ids colliding.
+The item is then filled at its own pace: slot content, image payloads,
+templated text, any widget value. Only a **complete** item joins the
+stack — an item with an empty slot is refused — while a slot image
+without a source may stay pending, keeping its reserved size until the
+payload arrives. Emptying the stack retires that stack's items, drafts
+included; the document's global id space is never touched.
 
 ## Handlers
 

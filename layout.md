@@ -93,10 +93,10 @@ Rules:
   cell only raises the row minimum. For the same reason the `h-*`
   utilities are rejected on [tables](widgets.md).
 
-## `vbox-expand` — an append-only stack
+## `vbox-expand` — a stack of drafted items
 
 A vertical stack whose items are **never declared in the document**:
-the XML reserves the place, and the runtime appends items into it —
+the XML reserves the place, and the runtime drafts items into it —
 typically a feed, a log, or a result list.
 
 ```xml
@@ -119,21 +119,24 @@ typically a feed, a log, or a result list.
 Rules:
 
 - Takes no children. Items come from
-  [fragments](fragments.md) appended at runtime; a document that
+  [fragments](fragments.md) drafted at runtime; a document that
   declares children is rejected.
 - The layout attributes mirror a static `vbox`: `spacing` sets the
   gap between items, `align` and `justify` position them, and
   `column="grid"` with `min`/`max` flows them into columns. A style
   utility on an item root (`h-N`, `w-full`) sizes that item inside
   the stack, exactly like a child of a `vbox`.
-- Each appended item is a fragment build of its own, with a **private
+- Each drafted item is a fragment build of its own, with a **private
   id space**: the same fragment can stack many times — `id="title"`
   inside ten items means ten titles, reachable per item through the
   runtime's list handle, never colliding in the document's global id
   space.
-- The runtime supplies per-item data: fragment slots get their
-  content and image resources per append, and the runtime can fill or
-  swap widget values on a single item later.
+- The runtime fills each item on its own: fragment slots get their
+  content per item, image payloads arrive per item, and widget values
+  can be filled or swapped on a single item later. An item joins the
+  stack only once it is complete — an empty slot is refused — while a
+  slot image without a source may stay pending, keeping its reserved
+  size until the payload arrives.
 - The stack sizes to its items by default. The
   [dimension utilities](style.md) size it like any element — with
   `scrollable`, `h-*` bounds the visible height so the stack scrolls

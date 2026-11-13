@@ -24,7 +24,7 @@ whose text carries a `{{placeholder}}` template.
 |---|---|---|
 | `window` | `title` (req), `size` (req, `WxH`) | exactly one widget |
 | `vbox` | `spacing`, `align`, `justify`, `column`, `min`, `max` + **common** | ≥ 1 widget; see [layout.md](layout.md) for grid rules |
-| `vbox-expand` | `spacing`, `align`, `justify`, `column`, `min`, `max`, `scrollable` (bare, or `="true"`) + **common** | no children; items appended at runtime from [fragments](fragments.md), each with a private id space |
+| `vbox-expand` | `spacing`, `align`, `justify`, `column`, `min`, `max`, `scrollable` (bare, or `="true"`) + **common** | no children; items drafted at runtime from [fragments](fragments.md), each with a private id space |
 | `hbox` | `spacing`, `align`, `justify` + **common** | ≥ 1 widget |
 | `border` | — + **common** | ≥ 1 region (`top`/`bottom`/`left`/`right`/`center`), each at most once |
 | `top` / `bottom` / `left` / `right` / `center` | — (no attributes) | ≤ 1 widget |
