@@ -92,6 +92,47 @@ Rules:
   cell only raises the row minimum. For the same reason the `h-*`
   utilities are rejected on [tables](widgets.md).
 
+## `vbox-expand` — an append-only stack
+
+A vertical stack whose items are **never declared in the document**:
+the XML reserves the place, and the runtime appends items into it —
+typically a feed, a log, or a result list.
+
+```xml
+<goexml version="0.1.0">
+  <window title="Feed" size="400x600">
+    <vbox-expand id="feed" style="w-full" scrollable="" />
+  </window>
+</goexml>
+```
+
+| Attribute | Value | Default |
+|---|---|---|
+| `scrollable` | present and empty | absent |
+
+Rules:
+
+- Takes no children. Items come from
+  [fragments](fragments.md) appended at runtime; a document that
+  declares children is rejected.
+- Each appended item is a fragment build of its own, with a **private
+  id space**: the same fragment can stack many times — `id="title"`
+  inside ten items means ten titles, reachable per item through the
+  runtime's list handle, never colliding in the document's global id
+  space.
+- The runtime supplies per-item data: fragment slots get their
+  content and image resources per append, and the runtime can fill or
+  swap widget values on a single item later.
+- The stack sizes to its items by default. The
+  [dimension utilities](style.md) size it like any element — with
+  `scrollable`, `h-*` bounds the visible height so the stack scrolls
+  inside it; without `scrollable`, the stack simply grows.
+- The [visual layer](visual-style.md) applies like on every element:
+  `bg-*`, `b-*` and `rounded` draw behind the stack.
+- The runtime can empty the stack; handles of removed items are
+  retired — writing into them afterwards is an explicit error, never
+  a silent write into a detached widget.
+
 ## `border` — five-region layout
 
 `border` divides the area into named regions: `top`, `bottom`, `left`,

@@ -57,6 +57,16 @@ page B means building fragment B where fragment A stood:
   template. The last call wins, per id.
 - The document's own ids are never touched by a fragment rebuild.
 
+## Appending fragments into a `vbox-expand`
+
+Fragments are also the unit of growth for the
+[`vbox-expand`](layout.md) stack: the runtime builds a fragment per
+appended item. Unlike a page rebuild, each appended item keeps its
+**own private id space** — the same fragment can be appended many
+times without its ids colliding, and per-item slot content and image
+resources are supplied at each append. Emptying the stack retires
+that stack's items; the document's global id space is never touched.
+
 ## Handlers
 
 `onClick` / `onChange` / `onSelect` inside a fragment are handler

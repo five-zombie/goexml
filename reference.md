@@ -23,6 +23,7 @@ regions, and required everywhere else.
 |---|---|---|
 | `window` | `title` (req), `size` (req, `WxH`) | exactly one widget |
 | `vbox` | `padding`, `spacing`, `align`, `justify`, `column`, `min`, `max` + **common** | ≥ 1 widget; see [layout.md](layout.md) for grid rules |
+| `vbox-expand` | `scrollable` (present and empty) + **common** | no children; items appended at runtime from [fragments](fragments.md), each with a private id space |
 | `hbox` | `padding`, `spacing`, `align`, `justify` + **common** | ≥ 1 widget |
 | `border` | — + **common** | ≥ 1 region (`top`/`bottom`/`left`/`right`/`center`), each at most once |
 | `top` / `bottom` / `left` / `right` / `center` | — (no attributes) | ≤ 1 widget |
