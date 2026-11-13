@@ -1,9 +1,9 @@
 # Containers and Slots
 
-`container` and `slot` are the injection points between XML and Go: a
-`container` is a hole in the document whose body is supplied at
-runtime. This page covers the XML contract; the Go side (`Build`,
-`SetContent`) is described in the main repository's README.
+`container` and `slot` are the injection points between XML and the
+runtime: a `container` is a hole in the document whose body is
+supplied at runtime. This page covers the XML contract; the build and
+content APIs belong to each implementation.
 
 ## `container`
 
@@ -26,7 +26,7 @@ the injection point. Its subtree must contain **exactly one** `slot`.
 
 Rules:
 
-- `id` is required — it is the name the Go side addresses the
+- `id` is required — it is the name the runtime addresses the
   container by.
 - Exactly one child, exactly one `<slot>` in the subtree (a count of
   zero or two or more is rejected).

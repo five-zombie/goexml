@@ -62,12 +62,12 @@ window width and flows over multiple lines.</text>
 | Attribute | Value | Required |
 |---|---|---|
 | `text` | Button label | yes |
-| `onClick` | Handler name — a name defined in the Go handler map | yes |
+| `onClick` | Handler name — a name the host application registers | yes |
 | `disabled` | `true` / `false` | no |
 
 - The `onClick` value is a **reference**: the parser checks the name
   exists in the handler map at build time; the implementation lives in
-  Go.
+  the host application.
 - The label may carry [`{{token}}` placeholders](dynamic-values.md).
 - Takes no children.
 
@@ -90,7 +90,7 @@ A single-line text input.
 | `disabled` | `true` / `false` | optional |
 
 - Takes no children.
-- At runtime the entry reflects what the user typed; the Go side reads
+- At runtime the entry reflects what the user typed; the runtime reads
   and writes it by id.
 
 ## `select` and `option`

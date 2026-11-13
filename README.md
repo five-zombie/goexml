@@ -1,14 +1,15 @@
 # goexml XML Documentation
 
 Documentation for the **goexml 0.1.0** XML schema: a declarative UI
-markup that describes Fyne layouts as reviewable files.
+markup that describes user interfaces as reviewable files.
 
-These documents cover the **XML side only** — elements, attributes,
-style utilities, and the validation rules the parser enforces. Handler
-implementations, the Go build API, and runtime value setters are
-documented in the main repository's README and code reference; where a
-XML feature connects to Go, these pages say so in one sentence and link
-back.
+The standard is **platform-neutral**: any runtime — desktop, browser,
+mobile — can implement it. These documents cover the **XML side only**:
+elements, attributes, style utilities, and the validation rules the
+parser enforces. Handler implementations, the build API, and runtime
+value setters belong to each implementation and are documented by it;
+where a XML feature connects to the runtime, these pages say so in one
+sentence.
 
 ## How the docs are split
 
@@ -32,10 +33,11 @@ A document is one `<goexml version="0.1.0">` envelope holding exactly
 one `<window>`. The window holds exactly one child — layout comes from
 explicit boxes (`vbox`, `hbox`, `border`), never from implicit
 stacking. Widgets carry unique `id`s; handlers are referenced by name
-in XML attributes and implemented in Go; values that change at runtime
-are set from Go, never computed in XML. The parser rejects unknown
-elements, unknown attributes, invalid values, and any construct that
-would render nothing, with a line-precise error.
+in XML attributes and implemented by the host application; values that
+change at runtime are set by the runtime, never computed in XML. The
+parser rejects unknown elements, unknown attributes, invalid values,
+and any construct that would render nothing, with a line-precise
+error.
 
 ```xml
 <goexml version="0.1.0">

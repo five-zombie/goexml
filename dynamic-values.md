@@ -1,9 +1,10 @@
 # Dynamic Values
 
 Static text lives in XML attributes. Values that change at runtime are
-set from Go by id — **there is no logic in XML**: no expressions, no
-`if`, no loops. What XML does have is the `{{token}}` placeholder: a
-hole in a text attribute that Go fills with values.
+set by id from the runtime side — **there is no logic in XML**: no
+expressions, no `if`, no loops. What XML does have is the `{{token}}`
+placeholder: a hole in a text attribute that the runtime fills with
+values.
 
 ## Where placeholders may appear
 
@@ -60,7 +61,7 @@ Rules:
   a label is not expressible, and the docs say so instead of inventing
   an escape syntax.
 
-## Rendering contract (what the Go side does)
+## Rendering contract
 
 The parser stores the **raw template** — the exact text from the XML.
 Until the application renders it, the raw template is what shows
@@ -68,21 +69,24 @@ Until the application renders it, the raw template is what shows
 rendered implicitly, and there is no hidden "must render" enforcement
 because the XML side has no notion of "shown".
 
-The Go API mirrors this contract:
+Every implementation that supports dynamic values must honor this
+contract:
 
-- `SetTextFormat(id, vals)` re-renders the template from its raw XML
-  text on every call. Missing tokens are errors that name the token;
-  extra values are ignored so one map can serve many widgets.
-- A plain `SetText(id, v)` **removes** the template registration for
-  that id — the last call wins, so a widget is either templated or
-  static, never ambiguously both. A `SetTextFormat` after that is
-  rejected instead of silently resurrecting the template.
-- `SetValueFormat(id, vals)` renders a select's option labels from
-  their raw templates and updates the option list; the current
-  selection survives by value.
-- Values are always `map[string]string`; numbers are formatted by the
+- **Format render**: re-rendering a widget's template from its raw XML
+  text replaces the displayed text; a value map that omits a token the
+  template declares is an error naming the token, and extra values are
+  ignored so one map can serve many widgets.
+- **Plain set wins**: setting a widget's text without values removes
+  the template registration for that id — the last call wins, so a
+  widget is either templated or static, never ambiguously both.
+  Re-rendering after that is rejected instead of silently resurrecting
+  the template.
+- **Selects render by label**: rendering a select's option labels from
+  their raw templates updates the option list; the current selection
+  survives by value.
+- Values are always plain string maps; numbers are formatted by the
   application before they go in.
 
-Token tables and value maps are **Go data**. XML never references
+Token tables and value maps are **runtime data**. XML never references
 where values come from — that is the line the schema holds: XML
-describes the shape of the hole, Go owns what goes through it.
+describes the shape of the hole, the runtime owns what goes through it.
