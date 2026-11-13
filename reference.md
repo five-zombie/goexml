@@ -16,13 +16,13 @@ whose text carries a `{{placeholder}}` template.
 | Element | Own attributes | Children |
 |---|---|---|
 | `goexml` | `version` (required, `0.1.0`) | exactly one `window` |
-| `goexml-item` | `version` (required, `0.1.0`) | exactly one widget |
+| `goexml-item` | `version` (required, `0.1.0`) | exactly one child — a widget or a `container` |
 
 ## Structure
 
 | Element | Own attributes | Children |
 |---|---|---|
-| `window` | `title` (req), `size` (req, `WxH`) | exactly one widget |
+| `window` | `title` (req), `size` (req, `WxH`) | exactly one child — a widget or a `container` |
 | `vbox` | `spacing`, `align`, `justify`, `column`, `min`, `max` + **common** | ≥ 1 widget; see [layout.md](layout.md) for grid rules |
 | `vbox-expand` | `spacing`, `align`, `justify`, `column`, `min`, `max`, `scrollable` (bare, or `="true"`) + **common** | no children; items drafted at runtime from [fragments](fragments.md), each with a private id space |
 | `hbox` | `spacing`, `align`, `justify` + **common** | ≥ 1 widget |

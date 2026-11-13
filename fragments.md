@@ -38,9 +38,10 @@ A fragment's ids become part of the built screen's global id space:
 ## Containers and slots inside fragments
 
 A fragment may itself contain a `container` with a `slot`, with the
-same rules as in a document: the content for such an inner slot is
-supplied when the fragment is built. This lets a fragment be both body
-and shell at once.
+same rules as in a document: the runtime supplies the content for
+such an inner slot — at build time for a rebuilt fragment, and before
+a drafted item joins a `vbox-expand` stack. This lets a fragment be
+both body and shell at once.
 
 ## Rebuild semantics: the last built page wins
 

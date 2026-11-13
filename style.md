@@ -86,7 +86,7 @@ wins. N runs 0–4 for both families; out-of-range or non-numeric values
 are rejected with the token named:
 
 ```text
-goexml: line 9: <vbox id="panel"> invalid style: bad padding "p-9", want p0 to p4
+goexml: line 9: <vbox id="panel"> invalid style: bad padding "p-9", want p-0 to p-4
 ```
 
 A `style` attribute can mix everything freely — dimensions, spacing,

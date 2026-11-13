@@ -43,9 +43,9 @@ The hole itself. Its position inside the surrounding child decides
 where the injected object lands; the injected object is placed exactly
 there and stretched to fill the slot's area.
 
-- `style` is the only attribute a slot accepts — and only the
-  [dimension utilities](style.md) matter (`w-full`, `h-N`, margin):
-  they decide the area the slot claims, which the injected content
+- `style` is the only attribute a slot accepts — the dimension and
+  spacing utilities matter (`w-full`, `h-N`, `p-*`, `m-*`): they
+  decide the area the slot claims, which the injected content
   then fills. The [visual utilities](visual-style.md) (`bg-`, `b-`,
   `rounded`) are rejected on a slot — a slot is a hole, there is
   nothing to paint the layer on.
