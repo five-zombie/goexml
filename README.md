@@ -1,7 +1,11 @@
-# goexml XML Documentation
+# goexml
 
-Documentation for the **goexml 0.1.0** XML schema: a declarative UI
-markup that describes user interfaces as reviewable files.
+The **goexml** XML standard — declarative UI markup, version **0.1.0** —
+described as reviewable files.
+
+This repository holds the standard's documentation. It is named
+**goexml**: the XML schema and its rules, independent of any
+implementation.
 
 The standard is **platform-neutral**: any runtime — desktop, browser,
 mobile — can implement it. These documents cover the **XML side only**:
