@@ -1,8 +1,8 @@
 # Widgets
 
 The leaf elements that render content: `label`, `text`, `button`,
-`entry`, `select`, `table`, and `rect`. Structure elements live in
-[layout.md](layout.md); injection points in
+`entry`, `select`, `table`, `rect`, and `image`. Structure elements
+live in [layout.md](layout.md); injection points in
 [containers-and-slots.md](containers-and-slots.md).
 
 All widgets **require an `id`** and accept the common attributes
@@ -184,3 +184,42 @@ A solid color block, a spacer with a visible body:
 - Combine with the [dimension utilities](style.md) to draw separators,
   panels, and spacers; combine with the
   [visual style](visual-style.md) `rounded` to round its corners.
+
+## `image`
+
+A picture from the runtime's **registered resource set**. XML names a
+resource; it never carries a file path, a URL, or a `{{token}}` —
+where the bytes live (embedded bundle, asset pack, network loader) is
+a runtime decision, which keeps documents portable across platforms.
+
+```xml
+<goexml version="0.1.0">
+  <window title="Photo" size="320x240">
+    <image id="photo" src="assets/logo.png" fit="contain" style="w-full" />
+  </window>
+</goexml>
+```
+
+| Attribute | Value | Default |
+|---|---|---|
+| `src` | Resource key: letters, digits, dot, dash, slash, underscore | required |
+| `fit` | `contain` / `cover` / `fill` | `contain` |
+
+Rules:
+
+- `src` must name a resource the runtime registered; an unknown key,
+  or bytes that are not a decodable image, fail the build — an image
+  can never silently render as an empty box.
+- Without size style the image is as large as its pixels. The
+  [dimension utilities](style.md) size it like any leaf — `h-*` is
+  **allowed** on an image (unlike a [table](widgets.md): pictures
+  scale, tables do not). `h-0` still means an invisible spacer.
+- `fit` decides how the picture fills its box: `contain` keeps the
+  aspect ratio inside it, `cover` fills it and crops the overflow,
+  `fill` stretches without keeping the aspect.
+- The [visual layer](visual-style.md) draws **behind** the pixels and
+  follows the same rules as everywhere else — but rounded corners do
+  not clip the picture itself.
+- The runtime can swap the resource by id at runtime (see the
+  implementation's image setter); an unknown key is rejected there
+  too.
