@@ -103,7 +103,7 @@ value.
   <window title="City" size="320x200">
     <select id="city" onChange="OnCity">
       <option value="jkt" text="Jakarta" />
-      <option value="bdg" text="Bandung" selected="" />
+      <option value="bdg" text="Bandung" selected />
       <option value="sby" text="Surabaya" />
     </select>
   </window>
@@ -119,15 +119,17 @@ Each `<option>` is required to carry:
 |---|---|
 | `value` | The submitted value — non-empty, never rendered |
 | `text` | The displayed label — may carry placeholders |
-| `selected` | Present and empty (`selected=""`) to mark the initial choice |
+| `selected` | Bare, or `="true"` — both mean the initial choice; any other value is rejected |
 
 Rules:
 
 - At least one `<option>`; nothing else may appear inside a `select`.
 - Option `text` values must be unique within the select — the text is
   what the widget displays, so duplicates would be ambiguous.
-- At most one `selected` option; `selected` takes no value
-  (`selected="true"` is rejected).
+- At most one `selected` option. The marker is the bare
+  `selected` attribute; `selected="true"` spells the same thing —
+  the decoder rewrites bare flags to `="true"` — and any other
+  value is rejected.
 - With no `selected`, nothing is chosen initially.
 
 ## `table`, `row`, `cell`

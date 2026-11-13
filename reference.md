@@ -24,7 +24,7 @@ whose text carries a `{{placeholder}}` template.
 |---|---|---|
 | `window` | `title` (req), `size` (req, `WxH`) | exactly one widget |
 | `vbox` | `spacing`, `align`, `justify`, `column`, `min`, `max` + **common** | ≥ 1 widget; see [layout.md](layout.md) for grid rules |
-| `vbox-expand` | `spacing`, `align`, `justify`, `column`, `min`, `max`, `scrollable` (present and empty) + **common** | no children; items appended at runtime from [fragments](fragments.md), each with a private id space |
+| `vbox-expand` | `spacing`, `align`, `justify`, `column`, `min`, `max`, `scrollable` (bare, or `="true"`) + **common** | no children; items appended at runtime from [fragments](fragments.md), each with a private id space |
 | `hbox` | `spacing`, `align`, `justify` + **common** | ≥ 1 widget |
 | `border` | — + **common** | ≥ 1 region (`top`/`bottom`/`left`/`right`/`center`), each at most once |
 | `top` / `bottom` / `left` / `right` / `center` | — (no attributes) | ≤ 1 widget |
@@ -65,8 +65,14 @@ whose text carries a `{{placeholder}}` template.
 | `color` | `#rrggbb` |
 | `src` | optional resource key: `[A-Za-z0-9._/-]+`; absent = runtime-filled slot |
 | `fit` | `contain` (default) / `cover` / `fill` |
-| `selected` | present and empty |
+| `selected` | bare, or `="true"` |
 | `style` | see [style.md](style.md) and [visual-style.md](visual-style.md) |
+
+Flag attributes — the ones whose presence alone means true
+(`scrollable`, `selected`) — read best bare: `<vbox-expand
+scrollable />`. The decoder rewrites a bare flag to `="true"` before
+parsing, so both spellings mean the same thing and any other value is
+rejected.
 
 ## Global rules that apply everywhere
 

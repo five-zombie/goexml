@@ -102,7 +102,7 @@ typically a feed, a log, or a result list.
 ```xml
 <goexml version="0.1.0">
   <window title="Feed" size="400x600">
-    <vbox-expand id="feed" style="w-full" scrollable="" />
+    <vbox-expand id="feed" style="w-full" scrollable />
   </window>
 </goexml>
 ```
@@ -114,7 +114,7 @@ typically a feed, a log, or a result list.
 | `justify` | `start` / `center` / `end` / `space-between` / `space-around` / `space-evenly` — main-axis distribution | `start` |
 | `column` | `grid` — flows items into a column-flow grid | off |
 | `min` / `max` | Integers ≥ 1 — grid column count bounds, only with `column="grid"` | — |
-| `scrollable` | present and empty | absent |
+| `scrollable` | bare, or `="true"` | absent |
 
 Rules:
 
