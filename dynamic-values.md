@@ -26,7 +26,7 @@ alphabet as [ids](document.md):
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Hello" size="320x200">
+  <window title="Hello">
     <label id="greeting" text="Hello, {{name}}" />
   </window>
 </goexml>
@@ -34,7 +34,7 @@ alphabet as [ids](document.md):
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Status" size="320x200">
+  <window title="Status">
     <text id="status">Loaded {{count}} of {{total}} items</text>
   </window>
 </goexml>
@@ -42,7 +42,7 @@ alphabet as [ids](document.md):
 
 ```xml
 <goexml version="0.1.0">
-  <window title="City" size="320x200">
+  <window title="City">
     <select id="city" onChange="OnCity">
       <option value="jkt" text="Jakarta" />
       <option value="city" text="City: {{city}}" />

@@ -11,7 +11,7 @@ no-op, so a typo can never render as a surprise.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Style" size="320x200">
+  <window title="Style">
     <vbox id="root" spacing="4">
       <entry id="name" placeholder="Name" style="w-full" />
       <vbox id="card" style="p-2 pt-4 m-1">
@@ -57,7 +57,7 @@ steps, each step 4 px.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Pad" size="320x200">
+  <window title="Pad">
     <vbox id="panel" style="p-2 pt-4">
       <!-- 16 px top, 8 px on the other three sides -->
       <label id="l" text="Content" />

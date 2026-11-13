@@ -22,7 +22,7 @@ whose text carries a `{{placeholder}}` template.
 
 | Element | Own attributes | Children |
 |---|---|---|
-| `window` | `title` (req), `size` (req, `WxH`) | exactly one child — a widget or a `container` |
+| `window` | `title` (req) | exactly one child — a widget or a `container`; size is set from Go (`Resize` on the `fyne.Window`) |
 | `vbox` | `spacing`, `align`, `justify`, `column`, `min`, `max` + **common** | ≥ 1 widget; see [layout.md](layout.md) for grid rules |
 | `vbox-expand` | `spacing`, `align`, `justify`, `column`, `min`, `max`, `scrollable` (bare, or `="true"`) + **common** | no children; items drafted at runtime from [fragments](fragments.md), each with a private id space |
 | `hbox` | `spacing`, `align`, `justify` + **common** | ≥ 1 widget |
@@ -59,7 +59,6 @@ whose text carries a `{{placeholder}}` template.
 | `column` | `grid` (vbox only) |
 | `min`, `max` | integers ≥ 1, only with `column="grid"` |
 | `spacing` | non-negative integer (px); inner padding moved to the style `p-N` utilities |
-| `size` | `WxH`, e.g. `800x600` |
 | `color` | `#rrggbb` |
 | `src` | optional resource key: `[A-Za-z0-9._/-]+`; absent = runtime-filled slot |
 | `fit` | `contain` (default) / `cover` / `fill` |

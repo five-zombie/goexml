@@ -12,7 +12,7 @@ the injection point. Its subtree must contain **exactly one** `slot`.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Page" size="480x360">
+  <window title="Page">
     <container id="page">
       <vbox id="shell" style="p-2" spacing="8">
         <label id="head" text="goexml page" />

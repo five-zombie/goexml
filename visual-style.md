@@ -13,7 +13,7 @@ value style: `bg-[#rrggbb]`.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Card" size="320x200">
+  <window title="Card">
     <vbox id="card" style="bg-[#1e293b] p-2">
       <label id="title" text="Card" />
     </vbox>
@@ -43,7 +43,7 @@ Widths are **direct pixels**, not 4 px steps: `b-1` is a 1 px border.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Panel" size="320x200">
+  <window title="Panel">
     <vbox id="panel" style="bg-[#0f172a] b-2 b-[#475569] rounded-md p-2">
       <label id="l" text="Rounded panel with a border" />
     </vbox>
@@ -53,7 +53,7 @@ Widths are **direct pixels**, not 4 px steps: `b-1` is a 1 px border.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Accent" size="320x200">
+  <window title="Accent">
     <vbox id="accent" style="b-1 bt-3 b-[#334155] bt-[#f59e0b] p-2">
       <label id="l" text="Uniform border, thick amber top" />
     </vbox>
@@ -87,7 +87,7 @@ The `*` is any size form: `rounded-t-md`, `rounded-bl-12`.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Rounded" size="320x200">
+  <window title="Rounded">
     <vbox id="card" style="bg-[#1e293b] rounded-xl p-2">
       <label id="title" text="Card" />
     </vbox>

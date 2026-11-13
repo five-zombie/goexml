@@ -12,7 +12,7 @@ The only supported version is `0.1.0`:
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Hello" size="400x300">
+  <window title="Hello">
     <label id="greeting" text="Hello" />
   </window>
 </goexml>
@@ -30,7 +30,10 @@ The only supported version is `0.1.0`:
 | Attribute | Value | Required |
 |---|---|---|
 | `title` | Window title text | yes |
-| `size` | `WxH`, e.g. `800x600` | yes |
+
+The window's size is **set from Go**: call `Resize` on the
+`fyne.Window` after `Build`; without it the toolkit default applies.
+A `size` attribute in the XML fails decode.
 
 The window holds **exactly one child**. This is the explicit-layout
 rule: two siblings would stack in an implicit, unconfigured box, so
@@ -39,7 +42,7 @@ The same rule applies inside [fragments](fragments.md).
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Preferences" size="480x360">
+  <window title="Preferences">
     <vbox id="root" style="p-2" spacing="8">
       <label id="info" text="General settings" />
       <entry id="name" placeholder="Display name" />

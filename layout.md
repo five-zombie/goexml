@@ -23,7 +23,7 @@ Lays children out top to bottom in document order.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Vertical" size="320x240">
+  <window title="Vertical">
     <vbox id="root" style="p-2" spacing="4" align="start">
       <label id="a" text="First" />
       <label id="b" text="Second" />
@@ -53,7 +53,7 @@ vertical (`align` positions each child vertically). `hbox` has no
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Actions" size="320x120">
+  <window title="Actions">
     <hbox id="actions" spacing="8" justify="end" align="center">
       <button id="cancel" text="Cancel" onClick="OnCancel" />
       <button id="save" text="Save" onClick="OnSave" />
@@ -71,7 +71,7 @@ column count adapts to the available width between `min` and `max`
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Grid" size="480x240">
+  <window title="Grid">
     <vbox id="tiles" column="grid" min="2" max="4" spacing="4">
       <label id="c1" text="One" />
       <label id="c2" text="Two" />
@@ -101,7 +101,7 @@ typically a feed, a log, or a result list.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Feed" size="400x600">
+  <window title="Feed">
     <vbox-expand id="feed" style="w-full" scrollable />
   </window>
 </goexml>

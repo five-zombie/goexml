@@ -15,7 +15,7 @@ Static text, always from the `text` attribute.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Label" size="320x200">
+  <window title="Label">
     <label id="title" text="Settings" />
   </window>
 </goexml>
@@ -33,7 +33,7 @@ two, never both:
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Text" size="320x200">
+  <window title="Text">
     <text id="intro" wrap="word">Long running text that wraps at the
 window width and flows over multiple lines.</text>
   </window>
@@ -53,7 +53,7 @@ window width and flows over multiple lines.</text>
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Button" size="320x200">
+  <window title="Button">
     <button id="save" text="Save" onClick="OnSave" />
   </window>
 </goexml>
@@ -77,7 +77,7 @@ A single-line text input.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Entry" size="320x200">
+  <window title="Entry">
     <entry id="name" text="" placeholder="Display name" style="w-full" />
   </window>
 </goexml>
@@ -100,7 +100,7 @@ value.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="City" size="320x200">
+  <window title="City">
     <select id="city" onChange="OnCity">
       <option value="jkt" text="Jakarta" />
       <option value="bdg" text="Bandung" selected />
@@ -140,7 +140,7 @@ text, exactly one of the two.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Prices" size="320x240">
+  <window title="Prices">
     <table id="prices" onSelect="OnPick">
       <row>
         <cell text="Coffee" />
@@ -175,7 +175,7 @@ A solid color block, a spacer with a visible body:
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Rect" size="320x200">
+  <window title="Rect">
     <rect id="divider" color="#2e2e2e" style="w-full h-0" />
   </window>
 </goexml>
@@ -198,7 +198,7 @@ which keeps documents portable across platforms.
 
 ```xml
 <goexml version="0.1.0">
-  <window title="Photo" size="320x240">
+  <window title="Photo">
     <image id="photo" src="assets/logo.png" fit="contain" style="w-full" />
   </window>
 </goexml>
