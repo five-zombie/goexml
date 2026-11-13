@@ -46,7 +46,9 @@ there and stretched to fill the slot's area.
 - `style` is the only attribute a slot accepts — and only the
   [dimension utilities](style.md) matter (`w-full`, `h-N`, margin):
   they decide the area the slot claims, which the injected content
-  then fills.
+  then fills. The [visual utilities](visual-style.md) (`bg-`, `b-`,
+  `rounded`) are rejected on a slot — a slot is a hole, there is
+  nothing to paint the layer on.
 - A slot takes no children.
 - A `slot` outside a `container` has no owner to fill it — exactly the
   accepted-then-dead pattern the parser rejects — so it is an error.
